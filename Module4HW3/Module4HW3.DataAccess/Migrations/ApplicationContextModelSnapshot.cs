@@ -27,13 +27,18 @@ namespace Module4HW4.DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<long>("PhoneNumber")
                         .HasColumnType("bigint");
@@ -41,6 +46,48 @@ namespace Module4HW4.DataAccess.Migrations
                     b.HasKey("ClientId");
 
                     b.ToTable("Client");
+
+                    b.HasData(
+                        new
+                        {
+                            ClientId = 1,
+                            Email = "svetlana.dvoryankina@nure.ua",
+                            FirstName = "Svetlana",
+                            LastName = "Dvoryankina",
+                            PhoneNumber = 380976543675L
+                        },
+                        new
+                        {
+                            ClientId = 2,
+                            Email = "a.senyushkovych@gmail.com",
+                            FirstName = "Oleksii",
+                            LastName = "Senyushkovych",
+                            PhoneNumber = 380959864553L
+                        },
+                        new
+                        {
+                            ClientId = 3,
+                            Email = "mariia177777@ukr.net",
+                            FirstName = "Mariia",
+                            LastName = "Fironova",
+                            PhoneNumber = 380669867552L
+                        },
+                        new
+                        {
+                            ClientId = 4,
+                            Email = "vadympr@gmail.com",
+                            FirstName = "Vadym",
+                            LastName = "Pratsibuda",
+                            PhoneNumber = 380966884553L
+                        },
+                        new
+                        {
+                            ClientId = 5,
+                            Email = "vvs3010@mail.ru",
+                            FirstName = "Valeriia",
+                            LastName = "Savelyeva",
+                            PhoneNumber = 380970580503L
+                        });
                 });
 
             modelBuilder.Entity("Module4HW4.DataAccess.Entities.Employee", b =>

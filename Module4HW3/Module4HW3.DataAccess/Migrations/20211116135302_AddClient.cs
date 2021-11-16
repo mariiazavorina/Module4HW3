@@ -19,14 +19,26 @@ namespace Module4HW4.DataAccess.Migrations
                 {
                     ClientId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PhoneNumber = table.Column<long>(type: "bigint", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Client", x => x.ClientId);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Client",
+                columns: new[] { "ClientId", "Email", "FirstName", "LastName", "PhoneNumber" },
+                values: new object[,]
+                {
+                    { 1, "svetlana.dvoryankina@nure.ua", "Svetlana", "Dvoryankina", 380976543675L },
+                    { 2, "a.senyushkovych@gmail.com", "Oleksii", "Senyushkovych", 380959864553L },
+                    { 3, "mariia177777@ukr.net", "Mariia", "Fironova", 380669867552L },
+                    { 4, "vadympr@gmail.com", "Vadym", "Pratsibuda", 380966884553L },
+                    { 5, "vvs3010@mail.ru", "Valeriia", "Savelyeva", 380970580503L }
                 });
 
             migrationBuilder.CreateIndex(
