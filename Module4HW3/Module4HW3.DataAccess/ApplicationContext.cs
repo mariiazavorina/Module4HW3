@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-using Module4HW3.DataAccess.Entities;
-using Module4HW3.DataAccess.Configurations;
+using Module4HW4.DataAccess.Entities;
+using Module4HW4.DataAccess.Configurations;
 
-namespace Module4HW3.DataAccess
+namespace Module4HW4.DataAccess
 {
     public class ApplicationContext : DbContext
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
         }
 
         public DbSet<Employee> Employee { get; set; }

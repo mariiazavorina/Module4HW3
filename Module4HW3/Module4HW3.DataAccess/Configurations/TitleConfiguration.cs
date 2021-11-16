@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using Module4HW3.DataAccess.Entities;
+using Module4HW4.DataAccess.Entities;
 
-namespace Module4HW3.DataAccess.Configurations
+namespace Module4HW4.DataAccess.Configurations
 {
     public class TitleConfiguration : IEntityTypeConfiguration<Title>
     {

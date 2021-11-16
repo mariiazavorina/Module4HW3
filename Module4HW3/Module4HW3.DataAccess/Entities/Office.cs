@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Module4HW3.DataAccess.Entities
+namespace Module4HW4.DataAccess.Entities
 {
     public class Office
     {
